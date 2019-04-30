@@ -1,17 +1,25 @@
 package me.lifeot.example;
 
+import me.lifeot.example.hello.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author choikimoon
+ */
 @RestController
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Example {
 
+    @Autowired
+    HelloService helloService;
+
     @RequestMapping("/")
-    String home() {
-        return "Hello World!";
+    public String hello() {
+        return helloService.getMessage();
     }
 
     public static void main(String[] args) {

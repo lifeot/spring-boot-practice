@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class HelloService {
 
     public String getMessage() {
-        return "Hello Spring Boot 2.0!!!";
+        return "Hello Spring Boot 2.0";
     }
 }
