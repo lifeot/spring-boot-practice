@@ -1,6 +1,7 @@
 package me.lifeot.example;
 
 import me.lifeot.example.hello.HelloService;
+import me.lifeot.example.hello.LifeotProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -21,6 +22,9 @@ public class Example {
     @Autowired
     HelloService helloService;
 
+    @Autowired
+    LifeotProperties lifeotProperties;
+
     @Bean
     public ExitCodeGenerator exitCodeGenerator() {
         return () -> 42;
@@ -28,6 +32,10 @@ public class Example {
 
     @RequestMapping("/")
     public String hello() {
+        System.out.println(lifeotProperties.getName());
+        System.out.println(lifeotProperties.getMyPojo().size());
+        System.out.println(lifeotProperties.getSessionTimeout());
+        System.out.println(lifeotProperties.getReadTimeout());
         return helloService.getMessage();
     }
 

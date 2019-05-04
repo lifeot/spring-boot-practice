@@ -1,0 +1,38 @@
+lifeot:
+  name: lifeot yml
+
+---
+spring:
+  profiles: default
+lifeot:
+  name: lifeot default
+  sessionTimeout: 30
+  readTimeout: 1000
+  number: 10
+  myPojo:
+    - name: my name
+      description: my description
+    - name: another name
+      description: another description
+
+---
+spring:
+  profiles: prod
+lifeot:
+  name: lifeot prod
+  myPojo:
+    - name: my name
+      description: my description
+    - name: another name
+      description: another description
+    - name: another name
+      description: another description
+
+---
+spring:
+  profiles: dev
+lifeot:
+  name: lifeot dev
+  myPojo:
+    - name: my name
+      description: my description

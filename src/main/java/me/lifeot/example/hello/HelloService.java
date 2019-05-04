@@ -1,16 +1,16 @@
 package me.lifeot.example.hello;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HelloService {
 
-    @Value("${lifeot.name}")
-    String name;
+    @Autowired
+    LifeotProperties lifeotProperties;
 
     public String getMessage() {
-        return "Hello, " + name;
+        return "Hello, " + lifeotProperties.getName() + " " + lifeotProperties.getMyPojo().size();
     }
 
 //    @PostConstruct
