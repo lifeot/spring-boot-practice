@@ -2,6 +2,7 @@ package me.lifeot.example;
 
 import me.lifeot.example.hello.HelloService;
 import me.lifeot.example.hello.LifeotProperties;
+import me.lifeot.example.hello.MyBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -25,6 +26,9 @@ public class Example {
     @Autowired
     LifeotProperties lifeotProperties;
 
+    @Autowired
+    MyBean myBean;
+
     @Bean
     public ExitCodeGenerator exitCodeGenerator() {
         return () -> 42;
@@ -32,6 +36,7 @@ public class Example {
 
     @RequestMapping("/")
     public String hello() {
+        System.out.println(myBean.getMessage());
         System.out.println(lifeotProperties.getName());
         System.out.println(lifeotProperties.getMyPojo().size());
         System.out.println(lifeotProperties.getSessionTimeout());
@@ -41,9 +46,9 @@ public class Example {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Example.class);
+
         application.setBanner(new MyBanner());
         application.setBannerMode(Banner.Mode.OFF);
-        application.addListeners(new MyListener());
         application.setWebApplicationType(WebApplicationType.SERVLET);
         application.run(args);
     }

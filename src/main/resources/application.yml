@@ -1,5 +1,8 @@
 lifeot:
   name: lifeot yml
+spring:
+  profiles:
+    active: dev
 
 ---
 spring:
