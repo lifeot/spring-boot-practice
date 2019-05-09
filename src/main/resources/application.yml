@@ -34,8 +34,18 @@ lifeot:
 ---
 spring:
   profiles: dev
+  output:
+    ansi:
+      enabled: always
 lifeot:
   name: lifeot dev
   myPojo:
     - name: my name
       description: my description
+logging:
+  file: ./logs/my.log
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: DEBUG
