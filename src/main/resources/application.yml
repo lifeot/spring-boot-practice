@@ -44,8 +44,8 @@ lifeot:
       description: my description
 logging:
   file: ./logs/my.log
-  level:
-    root: WARN
-    org:
-      springframework:
-        web: DEBUG
+#  level:
+#    root: WARN
+#    org:
+#      springframework:
+#        web: DEBUG
