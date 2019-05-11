@@ -34,15 +34,15 @@ public class Example {
         return () -> 42;
     }
 
-    @RequestMapping("/")
-    public String hello() {
-        System.out.println(myBean.getMessage());
-        System.out.println(lifeotProperties.getName());
-        System.out.println(lifeotProperties.getMyPojo().size());
-        System.out.println(lifeotProperties.getSessionTimeout());
-        System.out.println(lifeotProperties.getReadTimeout());
-        return helloService.getMessage();
-    }
+//    @RequestMapping("/")
+//    public String hello() {
+//        System.out.println(myBean.getMessage());
+//        System.out.println(lifeotProperties.getName());
+//        System.out.println(lifeotProperties.getMyPojo().size());
+//        System.out.println(lifeotProperties.getSessionTimeout());
+//        System.out.println(lifeotProperties.getReadTimeout());
+//        return helloService.getMessage();
+//    }
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Example.class);
