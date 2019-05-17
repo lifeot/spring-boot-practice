@@ -2,8 +2,8 @@ package me.lifeot.example.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -17,4 +17,16 @@ public class UserController {
         converters.getConverters().forEach(c -> System.out.println(c.getClass() + " " + c.toString()));
         return "Hello Spring MVC";
     }
+
+    @GetMapping("/user")
+    public User currentUser() {
+        User user = new User();
+        user.setAge(20);
+        user.setName("choikimoon");
+        user.setHeight(175);
+        return user;
+    }
+
+
+
 }
