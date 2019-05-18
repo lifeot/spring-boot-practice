@@ -37,10 +37,23 @@ spring:
   output:
     ansi:
       enabled: always
-  mvc:
-    static-path-pattern: /static/**
   resources:
-    static-locations: classpath:/html
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+      html-application-cache: true
+  mvc:
+    contentnegotiation:
+      favor-parameter: true
+      favor-path-extension: true
+    pathmatch:
+      use-suffix-pattern: true
+#  mvc:
+#    static-path-pattern: /static/**
+#  resources:
+#    static-locations: classpath:/html
 lifeot:
   name: lifeot dev
   myPojo:

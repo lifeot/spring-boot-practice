@@ -2,7 +2,9 @@ package me.lifeot.example.user;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class User {
 
     @NotEmpty
